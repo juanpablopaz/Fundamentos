@@ -1,0 +1,38 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+
+void main () 
+{
+	float a , b,  y ;
+	int x ;
+	do {
+		cout << "ingrese dos numeros " << endl;
+		cin>> a >> b ;
+		cout << "Elegir una opcion: " << endl;
+		cout << "1. Suma " << endl;
+		cout << "2. Resta " << endl;
+		cout << "3. Multiplicacion " << endl;
+		cout << "4. Division " << endl;
+		cout << "0. salir " << endl;
+		cin >> x;
+		switch (x) {
+			case 1: y= a + b; break;
+			case 2: y= a-b; break;
+			case 3: y=a*b; break;
+			case 4: y= a/b; break;
+			case 0: cout<< "salir"<< endl; break;
+			default: cout<< " opcion invalida" << endl;
+		}
+		if (x<=4 && x>0)
+
+		cout << " El resultado es: " << y << endl;
+	} 
+	while (x!=0);
+	getch ();
+
+}
+
