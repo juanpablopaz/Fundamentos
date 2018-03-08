@@ -2,6 +2,7 @@
 #include <iostream>
 #include "conio.h"
 #include "math.h"
+#include "stdlib.h"
 
 using namespace std;
 
@@ -30,9 +31,8 @@ void main ()
 		if (x<=4 && x>0)
 
 		cout << " El resultado es: " << y << endl;
+		getch (); 
+		system ("cls");
 	} 
 	while (x!=0);
 	getch ();
-
-}
-
