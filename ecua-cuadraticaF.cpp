@@ -14,9 +14,6 @@ void main ()
 	float d, k, x, z, a, b, c ;
 	cout << "ingresar las variables a, b, c " << endl;
 	cin >> a >> b >> c ;
-	if ( a==0){
-		cout << "a tiene que ser distinto a 0" << endl;
-	}
 	x= (b*b)-(4*a*c);
 	
 	if (x>0) {
