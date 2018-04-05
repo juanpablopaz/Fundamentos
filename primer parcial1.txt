@@ -1,0 +1,6 @@
+﻿1>------ Build started: Project: primer parcial, Configuration: Debug Win32 ------
+1>  primer parcial.cpp
+1>c:\users\alumnos\documents\visual studio 2010\projects\primer parcial\primer parcial\primer parcial.cpp(27): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getch. See online help for details.
+1>          c:\program files (x86)\microsoft visual studio 10.0\vc\include\conio.h(128) : see declaration of 'getch'
+1>  primer parcial.vcxproj -> c:\users\alumnos\documents\visual studio 2010\Projects\primer parcial\Debug\primer parcial.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
