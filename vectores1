@@ -1,0 +1,50 @@
+// vectores.cpp : Defines the entry point for the console application.
+// double para mostrar mas decimales como float
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#define MAX 100
+
+using namespace std;
+
+void carvector (double a[] , int tam);
+void mosvector (double a[] , int tam);
+double promedio (double a[] , int tama);
+
+void main () {
+	double S[MAX] ; int n; double prom;
+	do {
+		cout << "ingrese n numeros de elementos del vector " << endl;
+		cin >> n;
+	}
+	while (n>MAX|| n<=0);
+	carvector (S,n) ;			// una vez se metio dato , se llama al vector . S nombre del vector sin corchete. n tamaño del vector.
+	prom= promedio (S,n);
+
+	for (int i=0; i<n ; i++) {
+		cout << "dif " << i << "; " << S[i]*prom ; }
+
+	mosvector (S,n);
+	cout << "el promedio es " << prom;
+	getch ();
+}
+
+void carvector (double a[], int tam) {
+	for (int i=0; i< tam ; i++) {
+		cout << "vector [" <<i<< "]=" ;   // va mostrando que valor toca meter y entonces pide el valor de la posicion.
+	cin >> a[i];
+	}
+}
+void mosvector (double a[] , int tam) {
+	for (int i=0; i<tam; i++) 
+		cout <<"vector ["<<i<<"]=" << a[i]<< endl ;
+}
+
+
+double promedio ( double a[], int tama) {
+	double suma=0;
+	for (int i=0 ; i< tama; i++)
+		suma += a[i];					// sum a+a[i].
+	return suma;
+}
