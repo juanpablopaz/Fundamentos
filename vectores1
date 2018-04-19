@@ -21,9 +21,9 @@ void main () {
 	while (n>MAX|| n<=0);
 	carvector (S,n) ;			// una vez se metio dato , se llama al vector . S nombre del vector sin corchete. n tamaño del vector.
 	prom= promedio (S,n);
-
+	cout << "la deferencia con el promedio es :" << endl;
 	for (int i=0; i<n ; i++) {
-		cout << "dif " << i << "; " << S[i]*prom ; }
+		cout << " dif " << i << "; " << S[i]-prom ; }
 
 	mosvector (S,n);
 	cout << "el promedio es " << prom;
@@ -48,3 +48,4 @@ double promedio ( double a[], int tama) {
 		suma += a[i];					// sum a+a[i].
 	return suma;
 }
+
