@@ -1,0 +1,56 @@
+// vectoresclase.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#define MAX 100
+
+using namespace std;
+
+void carvector (int a[] , int tam);
+void mosvector (int a[] , int tam);
+void ordenarvector (int a[] , int tam);
+
+void main ()
+{
+	int v[MAX] , n;
+	do
+	{
+		cout << "ingrese tamaño del vector: " ;
+		cin >> n;
+	}
+	while (n>MAX || n<=0);
+	carvector ( v,n) ;
+	cout << "estoy ordenando el vector " << endl;
+	ordenarvector (v,n) ;
+	mosvector (v,n) ;
+	cout << "el menor es: " << v[0] << endl << " el mayor es: " << v[n-1] << endl;    //ordeno el vector de menor a mayor y muestro la ubicacion
+	getch () ;
+}
+void cavector (int a[] , int tam)
+ {
+	for (int i=0; i< tam ; i++) {
+		cout << "vector [" <<i<< "]=" ;   // va mostrando que valor toca meter y entonces pide el valor de la posicion.
+	cin >> a[i];
+	}}
+void mosvector (int a[] , int tam) {
+	for (int i=0; i<tam; i++) 
+		cout <<"vector ["<<i<<"]=" << a[i]<< endl ;
+}
+void ordenarvector ( int a[], int tam)
+{
+	int aux ;
+	for (int i=0; i<tam-1; i++)
+	{ 
+		for ( int j=i+1;j<tam; j++)
+		{ 
+			if (a[i]>a[j])
+			{
+				aux=a[j];
+				a[j]=a[i];
+				a[i]=aux;
+			}
+		}
+	}
+}
