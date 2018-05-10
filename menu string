@@ -1,0 +1,115 @@
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string>
+
+using namespace std;
+
+int longitud ( string nombre ) ;
+bool comparar ( string nombre, string var1 ) ;
+int encontrar (string nombre, string var1) ;
+string subcadena ( string nombre ,int pos , int x);
+bool palindromo (string nombre) ;
+
+
+void main()
+{
+	int pos, x, opc ;
+	int aux;
+	string var2 , var1 , nombre; 
+	do {
+		cout << "     MENU     " <<endl ; 
+		cout << " 1. longitud " << endl;
+		cout << " 2. comparar " << endl;
+		cout << " 3. encontrar " << endl;
+		cout << " 4. subcadena " << endl;
+		cout << " 5. Palindromo " << endl;
+		cout << " 0. salir " << endl ;
+		cout << " Opcion: " ;
+		cin >> x;
+		switch (x) {
+		case 1: cout << "ingrese la cadena ";
+			cin.ignore();
+			getline (cin, nombre);   // igual que cin
+			aux= longitud(nombre);
+			cout << " la cadena " << var1 << "es : " << aux ; break;
+		case 2: cin.ignore(); cout<< "ingresar cadena " ;
+			getline (cin , var1) ;
+			if (comparar(nombre,var1))
+				cout<< " son iguales ";
+			else 
+				cout << " son distintos " ;
+
+		case 3: cout << " ingresar la cadena principal " ;
+			getline (cin, nombre) ;
+			cout << " ingresar la cadena a buscar ";
+			getline (cin, var2 );
+			pos=encontrar (nombre, var2);
+			if ( pos==-1) 
+				cout <<" no esta la cadena dentro de la otra ";
+			else 
+				cout << " empieza en la posicion " << pos ;
+			break;
+		case 4: cout << " ingresar la cadena principal " ;
+			getline (cin, var1) ;
+			cout << " ingresar la posicion a devolver " ;
+			cin >> pos ;
+			nombre=subcadena( var1,pos, 1);
+			cout << " la subcadena en la posicion " << pos << " es" << nombre ;
+			break;
+		case 5: cout << " ingresar la cadena principal " ;
+			getline (cin, var1) ;
+			if (palindromo(var1))
+				cout << " es un palindromo " ;
+			else 
+				cout <<" no es " ;
+			break;
+		case 0: cout << " salir " ;
+			break;
+
+		default : cout << " error" ;
+			break;
+		}
+		cout << endl;
+	}
+	while (x!=0);
+	getch () ;
+}
+
+int longitud ( string nombre ) {
+	int aux;
+	aux=nombre.length();
+	return aux;
+}
+
+bool comparar ( string nombre, string var1 ) {
+	bool aux;
+	if ( nombre.compare(var1)==0 )
+		aux=true ;
+	else
+		aux= false;
+return aux;
+}
+
+int encontrar (string nombre, string var1) {
+	int aux ;
+	aux= nombre.find(var1);
+	return aux ;
+}
+
+string subcadena ( string nombre ,int pos , int x){
+	string aux;
+	aux=nombre.substr(pos,x);
+	return aux;
+}
+bool palindromo (string nombre) {
+	for ( int i=0; i < nombre.length()/2; i++ ) {
+		if (nombre.at(i)!=nombre.at(nombre.length()-i-1))
+			return false;
+		else 
+			return true ;
+	}
+}
+
+	
