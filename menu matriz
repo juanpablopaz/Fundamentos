@@ -1,0 +1,76 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "stdlib.h" 
+#define MAX 20
+
+
+using namespace std;
+
+void mostrarma (int mat[MAX][MAX] , int n, int m );
+void cargarma (int mat[MAX][MAX] , int n, int m );
+int mayorma (int mat[MAX][MAX] , int n, int m );
+float promedio (int mat[MAX][MAX] , int n, int m );
+
+void main () {
+	int mat[MAX][MAX], n, m, x, may ;
+	float prom;
+do  {
+	cout << "Ingrese el numero de filas " <<endl;
+	cin >> n;
+} while ((n>MAX) || (n<=0)) ;
+do {
+cout << "Ingrese el numero de columnas " << endl;
+	cin >> m;
+} while ((m>MAX)|| (m<=0)) ;
+	do {
+		cout << " --	MENU	-- " << endl ;
+		cout << " 1. cargar matriz " << endl;
+		cout << " 2. mostrar matriz " << endl ;
+		cout << " 3. promedio matriz " << endl ;
+		cout << " 4. mayor matriz " << endl;
+		cout << " 0. salir " << endl ;
+		cout << "eliga opcion " << endl ;
+		cin >> x;
+		switch (x) {
+		case 1: cargarma ( mat , n, m ); break;
+		case 2: mostrarma ( mat, n, m ) ; break;
+		case 3: cout << " el promedio es " << promedio (mat, n ,m) ; break;
+		case 4: cout << mayorma (mat , n, m ) ; break;
+		case 0 : cout << "salir" ; break;
+		default: cout << "error"; break;
+		}
+		getch () ;
+		system("cls"); // limpie la pantalla 
+	} while (x!=0) ;
+}
+void mostrarma ( int mat[MAX][MAX] , int n , int  m) {
+	for ( int i=0; i<m; i++)
+		for (int j=0; j<n ; j++)
+			cout << "matriz [" <<i<<", " << j << "]=" << mat[i][j] << endl;
+}
+
+int mayorma (int mat[MAX][MAX] , int n, int m ) {
+	int may= mat [0][0];
+	for (int i=0;i<m;i++)
+		for(int j=0;j<n;j++)
+			if (mat[i][j]>may)
+				may=mat[i][j];
+	return may; }
+
+void cargarma (int mat[MAX][MAX], int n , int m ) {
+	for ( int i=0;i<m;i++)
+		for (int j=0;j<n;j++){
+			cout << "mat [" <<i<< "]["<<j<<"]=" ;
+	cin >> mat[i][j];
+		}
+}
+
+float promedio (int mat[MAX][MAX], int n , int m ) {
+	float prom, s=0 ;
+	for (int i=0;i<m;i++)
+		for (int j=0;j<n;j++)
+			s=s+mat[i][j];
+	prom= (s/(m*n));
+	return prom;
+}
