@@ -26,9 +26,9 @@ void main () {
 }
 float suma ( float b, int n, int k ) {
 float s=0;
-for (int i=0; i<=n; i++)
+for (int i=1; i<=n; i++){
 s=s+ (pow (b,i)*(k));
-k=k*-1;
+k=k*-1;}
 return s;
 }
 float base ( float b, int n, float x, int k, float serie[] ) {
