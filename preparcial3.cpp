@@ -1,6 +1,7 @@
 // preparcial3.cpp : Defines the entry point for the console application.
-//ejercicio numero 2
+//ejercicio numero 3
 
+#include "stdafx.h"
 #include "stdafx.h"
 #include "conio.h"
 #include <iostream>
@@ -9,44 +10,40 @@
 
 using namespace std;
 
-void mostrar (float serie[], int n) ; 
-float suma (float b, int n, int k);
-void base (float b int n, float x, int k, float serie[]);
+void mostrar ( int mat[MAX][MAX] , int n, int m) ;
+void cargar ( int mat[MAX][MAX] , int n, int m) ;
+void vector ( int mat[MAX][MAX], int n, int m, int vect[MAX] );
 
 void main () {
-	int n, k ; 
-		float b, x=0, serie[MAX], h ;
-		cout << " ingrese la base " << endl ;
-		cin >> b ;
-		cout << " ingrese la cantidad de terminos " << endl;
-		cin >> n;
-		k=1;
-		base (b,n,x,k,serie);
-		h=suma (b,n,k);
-		cout << " la suma es = " << h << endl;
-		mostrar (serie, n);
-		getch ();
+    int mat [MAX][MAX] , vect[MAX]  n ,m ;
+    cout << " ingrese el numero de filas " << endl;
+    cin >> n ;
+    cout << " ingrese el numero de columnas " << endl;
+    cin >> m ;
+    cargar (mat, n, m);
+	vector (mar, n, m );
+	mostrar (mat,n,m) ;
+
+	getch () ;
+
 }
 
-float suma ( float b, int n, int k ) {
-	float s=0;
-	for (int i=0; i<=n; i++)
-		s=s+ (pow (b,i)*(k));
-	k=k*-1;
-	return s;
+void cargar (int mat[MAX][MAX] , int n, int m ) {
+    for ( int i=0;i<m;i++)
+        for ( int j=0;j<n;j++){
+            cout << "mat [" <<i<< "][" <<j<< "]=" ;
+            cin >> mat[i][j];
+        }
 }
 
-void base ( float b, int n, float x, int k, float serie[] ) {
-	for (int i=0 ; i <=n ; i++){
-		x=( pow (b,i))*k;
-		for (int j=0 ; j<=n ; j++)
-		serie[j]=x;
-	k=k*-1;
-	}
+void vector ( int [MAX][MAX], int n, int m, int vect[MAX] ) {
+	 for ( int i=0;i<m;i++)
+        for ( int j=0;j<n;j++){
+			vect[i]= mat[i]*[j] ;
+		}
 }
 
-void mostrar ( float serie[] , int n) {
-	for (int j=0;j<=n;j++)
-		cout << " vector [" << j << "]= " << serie[j] << endl;
-}
-	
+void mostrar ( int mat[MAX][MAX] , int n, int m, vect[MAX] ) {
+	for (int i=0 ; i <m ; i++)
+		for ( int j=0; i<n ; i++)
+			cout << "matriz [" <<i << "," << j << "]= " << mat [i][j] << endl << "multiplicacion =" << vect[i] <<endl;
