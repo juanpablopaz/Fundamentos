@@ -21,7 +21,7 @@ void main () {
     cout << " ingrese el numero de columnas " << endl;
     cin >> m ;
     cargar (mat, n, m);
-	vector (mar, n, m );
+	vector (mar, n, m, vect);
 	mostrar (mat,n,m) ;
 
 	getch () ;
@@ -43,7 +43,7 @@ void vector ( int [MAX][MAX], int n, int m, int vect[MAX] ) {
 		}
 }
 
-void mostrar ( int mat[MAX][MAX] , int n, int m, vect[MAX] ) {
+void mostrar ( int mat[MAX][MAX] , int n, int m, int vect[MAX] ) {
 	for (int i=0 ; i <m ; i++)
 		for ( int j=0; i<n ; i++)
 			cout << "matriz [" <<i << "," << j << "]= " << mat [i][j] << endl << "multiplicacion =" << vect[i] <<endl;
