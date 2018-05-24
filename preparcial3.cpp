@@ -11,7 +11,7 @@ using namespace std;
 
 void mostrar (float serie[], int n) ; 
 float suma (float b, int n, int k);
-float base (float b int n, float x, int k, float serie[]);
+void base (float b int n, float x, int k, float serie[]);
 
 void main () {
 	int n, k ; 
@@ -36,7 +36,7 @@ float suma ( float b, int n, int k ) {
 	return s;
 }
 
-float base ( float b, int n, float x, int k, float serie[] ) {
+void base ( float b, int n, float x, int k, float serie[] ) {
 	for (int i=0 ; i <=n ; i++){
 		x=( pow (b,i))*k;
 		for (int j=0 ; j<=n ; j++)
