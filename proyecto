@@ -1,0 +1,220 @@
+
+#include "stdafx.h"
+#include <stdio.h>
+#include <iostream>
+#include "conio.h"
+#include "stdlib.h" 
+#include <string>
+#define MAX 100
+
+
+using namespace std;
+
+void cargavec (string artista[], string musica[] , int edad[], int cel[], int puntuacion[], int tam[]);
+void mostrarVector(string artista[], string musica[], int edad[], int cel[], int puntuacion[], int tam[]);
+void cargarmanual (string artista[], string musica[], int edad[], int cel[], int puntuacion [], int tam[]);
+void eliminar (string artista[], string musica[], int edad[], int cel[], int puntuacion [], int tam[]);
+void BuscarArtista(string artista[], string musica[], int edad[], int cel[], int puntuacion[], int tam[]);
+void BuscartipoDeMusica(string artista[], string musica[], int edad[], int cel[], int puntuacion[], int tam[]);
+void calificar (string artista[], string musica[] , int edad[], int cel[], int puntuacion[], int tam[]);
+
+void main () {
+	int  f, c, edad[MAX], cel[MAX], puntuacion[MAX], tam[MAX];
+	char x;
+	string artista[MAX] , musica[MAX];
+	system ("color F1");
+	cout << "    BIENVENIDOS A MUSICON   " << endl ;
+
+	do {
+		cout << "  ----    MENU    ---- " << endl ;
+		cout << " 1. Carga automatica (DEMO)" << endl;
+		cout<< " 2. Explorar la guia de musicon" <<endl;
+		cout<< " 3. Registra tu Grupo o Artista						Publica aqui " << endl;
+		cout << " 4. Clasificar a artista o grupo					Tigo music el 20/6/2018." << endl;
+		cout << " 5. Buscar por artista" << endl;
+		cout << " 6. Buscar por genero " << endl;
+		cout << " 7. Eliminar "<< endl;
+		cout << " 0. salir" <<endl;
+		cin >> x;
+		switch (x) {
+		case '1': cargavec ( artista, musica ,edad,cel,puntuacion, tam ); break;
+		case '2': mostrarVector (artista, musica,edad, cel, puntuacion,  tam); break;
+		case '3': cargarmanual (artista, musica,edad, cel, puntuacion,  tam); break;
+		case '4': calificar (artista, musica , edad,cel, puntuacion, tam); break;
+		case '5': BuscarArtista (artista, musica,edad,cel, puntuacion,tam); break;
+		case '6': BuscartipoDeMusica( artista,musica,edad,cel,puntuacion,tam); break;
+		case '7': eliminar (artista, musica,edad, cel, puntuacion,  tam); break;
+		case '0': "salir"; break;
+		default : cout<< "Error... Ingrese opcion valida"<<endl;
+
+
+
+		}
+		getch ();
+		system ("cls");
+		
+		} while (x!='0'); 
+	// ((x>'0')&&(x<'8'))
+	getch ();
+}
+
+
+
+void cargavec (string artista[], string musica[] , int edad[], int cel[], int puntuacion[], int tam[] ) {
+	int a;
+	cout<<"Ingrese la contraseña:"<<endl;
+	cin>>a;
+	if(a==007){
+			musica[1]='F';  //tipo de musica
+			artista[1]="Los Kajarkas";		// grupo
+			edad[1]= 40;	//edad
+			puntuacion[1]= 8 ;  //puntuacion
+			cel[1]=77606699; //# celular
+			musica[2]="E";
+			artista[2]= "DJ Mickey" ;
+			edad[2]= 25;
+			puntuacion[2]= 9;
+			cel[2]= 76730081;
+			musica[3]= "R";
+			artista[3]= "Santiago Molina";
+			edad[3]= 25;
+			puntuacion[3]= 8;
+			cel[3]= 76090116;
+			musica[4]= "R";
+			artista[4]= "ACDC";
+			edad[4]= 60;
+			puntuacion[4]= 10;
+			cel[4]= 70032133;
+			musica[5]= "M";
+			artista[5]= "Mariachi Gavilan";
+			edad[5]= 42;
+			puntuacion[5]= 9;
+			cel[5]=69051134;
+			musica[6]= "F";	
+			artista[6]= "Proyeccion";
+			edad[6]= 43;
+			puntuacion[6]= 6;
+			cel[6]=72100300;
+			musica[7]= "E";
+			artista[7]= "Avicci";
+			edad[7]= 30;
+			puntuacion[7]= 10;
+			cel[7]= 73955667;
+			musica[8]= "M";
+			artista[8]= "Mariachi Los Salmos";
+			edad[8]= 55;
+			puntuacion[8]=  8;
+			cel[8]= 73589892;
+			musica[9]= "E";
+			artista[9]= "DJ Dubi";
+			edad[9]= 18;
+			puntuacion[9]=  8;
+			cel[9]= 70015325;
+			musica[10]= "S";
+			artista[10]= "Erick Bezzerra";
+			edad[10]= 39 ;
+			puntuacion[10]= 7;
+			cel[10]= 75863495;
+			tam[1]=10;}
+}
+void mostrarVector(string artista[], string musica[], int edad[], int cel[], int puntuacion [], int tam[]){
+	
+	for(int i=1; i<=tam[1]; i++){
+		cout << i<<".- " << " Los generos de musica son E= Electronica, M= Mariachis , S= Solistas, F= Folklore, R= Rock." << endl;
+		cout<<" Artista: "<< artista[i]<<endl;
+		cout<<" Genero: " << musica[i]<<endl;
+		cout<<" Puntuacion sobre 10: " << puntuacion[i]<<endl;
+		cout<<"Edad: " << edad[i]<<endl;
+		cout<< " Telefono " << cel[i]<<endl;
+	}
+}
+		
+void cargarmanual (string artista[], string musica[], int edad[], int cel[], int puntuacion [], int tam[]){
+	int c;
+	char pregunta='s';  
+	do{ 
+		tam[1]=tam[1]+1;
+		c=tam[1];
+		puntuacion[c]=5;
+		getline (cin,musica[c]);
+		cout << "Ingrese Genero, los generos son E= Electronica, M= Mariachis , S= Solistas, F= Folklore, R= Rock:  "<< endl ;
+		getline (cin,musica[c]);
+		cout << " Ingrese Artista:  " << endl ;
+		getline (cin, artista[c]);
+		cout << "Ingrese Edad: " << endl;
+		cin >> edad[c];
+		cout << " Ingrese telefono: " << endl;
+		cin >> cel[c] ;
+		cout << "Desea ingresar otro artista ? (s/n)" << endl;
+		cin >> pregunta;
+	}
+		while (pregunta== 's' || pregunta== 'S' );
+		
+}
+
+void eliminar (string artista[], string musica[], int edad[], int cel[], int puntuacion [], int tam[]){
+	int n, a ;
+	cout<<"Ingrese la contraseña:"<<endl;
+	cin>>a;
+	if(a==007)
+		cout << "Ingrese el numero que quiere eliminar " << endl;
+		cin >> n ;
+		for (int i=n; i<tam[1]; i++) {
+			musica[i]=musica[i+1];
+			artista[i]=artista[i+1];
+			edad[i]=edad[i+1] ;
+			puntuacion[i]=puntuacion[i+1]; 
+			cel[i]=cel[i+1];
+		 }tam[1]=tam[1]-1 ;
+}
+
+
+void BuscartipoDeMusica(string artista[], string musica[], int edad[], int cel[], int puntuacion[], int tam[]){
+	string respuesta;
+	char op='s' ;
+	do{
+		cout<<"Ingrese tipo de musica a buscar entre las opciones:"<<endl;
+		cout<<"S para Solistas"<<endl<<"F para Folklore"<<endl<<"E para Electronica"<<endl<<"M para Mariachi"<<endl;
+		cin>>respuesta;
+		for (int i=0; i<tam[1]; i++){
+			if (respuesta==musica[i])
+				cout<<endl <<"Resultado de la busqueda:"<<endl<<"Artistas: " <<artista[i]<<endl<<"Genero: " <<musica[i]<<endl<<"Edad: "<< edad[i]<<endl<<"Telefono: "<<cel[i]<<endl<<"Puntuacion: " <<puntuacion[i]<<endl;
+		}
+				cout<<"Desea buscar otra vez? (s/n):"<<endl;
+				cin>>op;
+			
+		
+	}while(op=='s'|| op== 'S');
+	} 
+
+
+void BuscarArtista(string artista[], string musica[], int edad[], int cel[], int puntuacion[], int tam[]){
+	string respuesta;
+	int c=tam[1];
+
+		cout<<"Ingrese el artista a buscar:"<<endl;
+		cin>>respuesta;
+		int i=0;
+		do {
+			i=i+1;
+		}while ((respuesta!=artista[i]) && (i<=c));
+		if (respuesta==artista[i])
+				cout<<"Resultado de la busqueda:"<<endl<<artista[i]<<endl<<"Genero: " << musica[i]<<endl<< "Edad: " << edad[i]<<endl<<"Telefono: "<< cel[i]<<endl<<"Puntuacion: " << puntuacion[i]<<endl<<endl;
+		else
+				cout<<"Busqueda no encontrada"<<endl<<endl;
+			
+}
+
+void calificar (string artista[], string musica[] , int edad[], int cel[], int puntuacion[], int tam[]){
+	int n, k;
+	cout << " Ingrese el artista que quiere calificar, su posicion o numero" << endl;
+	cin >> n; 
+		cout<<" Artista: "<< artista[n]<<endl;
+		cout<<" Genero: " << musica[n]<<endl;
+		cout<<" Puntuacion sobre 10: " << puntuacion[n]<<endl;
+		cout<<"Edad: " << edad[n]<<endl;
+		cout<< " Telefono " << cel[n]<<endl;
+		cout << " Ingrese la clasificacion " << endl;
+	cin >> k;
+	puntuacion[n]=(puntuacion[n]+k)/2;
+}
